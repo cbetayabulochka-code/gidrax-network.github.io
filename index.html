@@ -3,356 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GidraX-Network | Minecraft Сервер</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>GidraX-Network | 1.21.11</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
+    <canvas id="crystals"></canvas>
+
     <header>
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon"></div>
-                    <h1>GidraX-Network</h1>
-					<h2> [1.16.X-1.19.X]</h2>
-                </div>
-                <div class="mobile-menu">☰</div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Главная</a></li>
-                        <li><a href="#about">О сервере</a></li>
-                        <li><a href="#rules">Правила</a></li>
-                        <li><a href="https://gidrax-network.easydonate.ru" target="_blank" class="shop-link">Магазин</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <h1 class="logo">GidraX-<span>Network</span></h1>
+            <p class="dev">Developed by GXDev</p>
         </div>
     </header>
 
-    <!-- Главный баннер -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="container">
-            <h2>Добро пожаловать на GidraX-Network!</h2>
-            <p>Уникальный Minecraft сервер с плагинами для незабываемого геймплея. Присоединяйся к нашему сообществу!</p>
-        </div>
-    </section>
-
-    <!-- Баннер с кнопками -->
-    <section class="buttons-banner">
-        <div class="container">
-            <div class="server-ips">
-                <div class="ip-container">
-                    <div class="ip-label">Айпи EU:</div>
-                    <div class="server-ip" id="server-ip-eu">gidraxnw.play.ski</div>
-                </div>
-                <div class="ip-container">
-                    <div class="ip-label">Для РФ:</div>
-                    <div class="server-ip" id="server-ip-ru">gidraxmsk.play.ski</div>
-                </div>
-            </div>
+            <h2>Добро пожаловать</h2>
+            <p>Версия 1.21.11 Java Edition</p>
             
-            <!-- Большая кнопка магазина -->
-            <div class="shop-main-button">
-                <a href="https://gidrax-network.easydonate.ru" target="_blank" class="shop-button-large">
-                    <i class="fas fa-shopping-cart"></i>
-                    Перейти в магазин
-                </a>
+            <div class="ip-container">
+                <button id="copy-ip" onclick="copyIP()">
+                    IP: mc.gidrax-net.ru
+                    <span id="copy-status">Копировать</span>
+                </button>
             </div>
-            
-            <!-- Кнопки соцсетей -->
-            <div class="social-buttons">
-                <a href="https://t.me/GidraXNW" target="_blank" class="social-button tg-button">
-                    <i class="fab fa-telegram"></i>
-                    Телеграм
-                </a>
-                <a href="https://vk.com/gidraxnetwork" target="_blank" class="social-button vk-button">
-                    <i class="fab fa-vk"></i>
-                    Вконтакте
-                </a>
-                <a href="https://discord.gg/J3WXA2tZvT" target="_blank" class="social-button ds-button">
-                    <i class="fab fa-discord"></i>
-                    Дискорд
-                </a>
+
+            <div class="social-links">
+                <a href="https://t.me/GidraXNW" target="_blank" class="btn">Telegram</a>
+                <a href="https://discord.gg/yRm5CrumzW" target="_blank" class="btn">Discord</a>
+                <a href="https://vk.com/GidraXNetwork" target="_blank" class="btn">Vkontakte</a>
             </div>
         </div>
     </section>
 
-    <!-- О сервере -->
-    <section id="about">
+    <section class="about">
         <div class="container">
-            <div class="section-title">
-                <h2>О нашем сервере</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>GidraX-Network - это уникальный Minecraft сервер, созданный для настоящих ценителей игры. Мы предлагаем:</p>
-                    <ul style="margin: 20px 0; padding-left: 20px;">
-                        <li>Стабильную работу 24/7</li>
-                        <li>Уникальные плагины</li>
-                        <li>Дружелюбное сообщество</li>
-                        <li>Регулярные обновления и события</li>
-                        <li>Защиту от читеров</li>
-                    </ul>
-                    <p>Наш сервер работает на последней версии Minecraft с оптимизированными настройками для максимального комфорта игры.</p>
+            <h3>О сервере</h3>
+            <div class="accordion">
+                <div class="acc-item">
+                    <div class="acc-header">ИИ-античит</div>
+                    <div class="acc-content">Система на базе искусственного интеллекта, которая анализирует поведение игроков в реальном времени, обеспечивая честную игру без ложных срабатываний.</div>
                 </div>
-                <div class="about-image">
-                    <img src="screenshot.jpg" alt="Скриншот сервера GidraX-Network">
+                <div class="acc-item">
+                    <div class="acc-header">Хорошие сервера</div>
+                    <div class="acc-content">Мощное современное железо и профессиональная защита от DDoS-атак гарантируют стабильный пинг и отсутствие лагов.</div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-header">Защита аккаунтов</div>
+                    <div class="acc-content">Безопасность ваших данных через привязку к специальному Telegram-боту. Ваш аккаунт под надежной защитой.</div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-header">Хорошая модерация</div>
+                    <div class="acc-content">Опытная команда модераторов, которая внимательно следит за игровым процессом и порядком в чате.</div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-header">Обновления</div>
+                    <div class="acc-content">Регулярные обновления контента и разработка собственных уникальных плагинов для интересной игры.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="rules" style="background: rgba(26, 26, 58, 0.3);">
+    <section class="contacts">
         <div class="container">
-            <div class="section-title">
-                <h2>Правила сервера</h2>
-            </div>
-            <div class="rules-container">
-                <div class="rules-category">
-                    <h3>Правила игрового чата</h3>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.0</strong> > Запрещено флудить, спамить символами (8 и более одинаковых символов), спамить, отправлять более 2-х похожих по смыслу, или одинаковых сообщения подряд.</div>
-                        <div class="punishment">[Наказание: предупреждение, мут на 60 - 120 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.1</strong> > Запрещено аморальное поведение.</div>
-                        <div class="punishment">[Наказание: мут на 60 - 180 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.2</strong> > Запрещено унижение, а так же любые оскорбления в сторону игроков (в глобальном чате).</div>
-                        <div class="punishment">[Наказание: мут на 30 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.2.1</strong> > Запрещено оскорбление родителей. некорректное обращение к родителям любого игрока, оскорбительные упоминания.</div>
-                        <div class="punishment">[Наказание: мут на 1 - 3 часа]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.2.2</strong> > Запрещено унижение, угрозы и оскорбление в сторону администрации.</div>
-                        <div class="punishment">[Наказание: мут на усмотрение администратора]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.3</strong> > Запрещены угрозы любого вида.</div>
-                        <div class="punishment">[Наказание: мут на 30 - 60 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.4</strong> > Запрещен флуд, спам, капс в личные сообщения администратору.</div>
-                        <div class="punishment">[Наказание: предупреждение, мут от 1- 3 часов]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.5</strong> > Запрещено попрошайничество любых игровых ценностей у админа ( вещи, донат и т.д.).</div>
-                        <div class="punishment">[Наказание: предупреждение, мут от 10 до 30 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.6</strong> > Запрещена организация флуда в чате.</div>
-                        <div class="punishment">[Наказание: мут на 30-60 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.7</strong> > Запрещено упоминание других проектов в любом виде.</div>
-                        <div class="punishment">[Наказание: мут на 1 час]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.8</strong> > Запрещено просить разбан/размут у администрации.</div>
-                        <div class="punishment">[Наказание: мут на 10-120 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.9</strong> > Запрещено дизинформирование/обман игроков/ администраторов.</div>
-                        <div class="punishment">[Наказание: бан на 14 дней]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>2.0</strong> > Запрещена реклама сторонних ресурсов и проектов.</div>
-                        <div class="punishment">[Наказание: мут на усмотрение администрации]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>2.1</strong> > Запрещена дискриминация по половым, религиозным, сексуальным, физиологическим и другим признакам.</div>
-                        <div class="punishment">[Наказание: мут на 1-12 часов]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>2.2</strong> > Неуважительное отношение к администрации проекта.</div>
-                        <div class="punishment">[Наказание: мут на 30 - 360 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>2.3</strong> > Запрещена политическая агитация.</div>
-                        <div class="punishment">[Наказание: мут на 2 часа]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>2.4</strong> > Запрещен капс. (Капсом считается сообщение, в котором верхним регистром написано более 50% от всего сообщения)</div>
-                        <div class="punishment">[Наказание: предупреждение, мут на 10 - 30 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>2.5</strong> > Запрещено оскорбление проекта.</div>
-                        <div class="punishment">[Наказание: мут на 1 - 3 часа]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>2.6</strong> > Запрещено обсуждать действие администрации, для этого есть Discord.</div>
-                        <div class="punishment">[Наказание: мут на 30 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>2.7</strong> > Запрещена выдача себя за администрацию проекта.</div>
-                        <div class="punishment">[Наказание: мут на 30 минут]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>2.8</strong> > Запрещено распространение вредоносных ссылок.</div>
-                        <div class="punishment">[Наказание: перманентный мут]</div>
-                    </div>
+            <h3>Контакты</h3>
+            <div class="contact-grid">
+                <div class="card">
+                    <h4>Менеджер</h4>
+                    <p>Telegram: <a href="https://t.me/nookh75">@nookh75</a></p>
+                    <span>Сотрудничество и реклама</span>
                 </div>
-                
-                <div class="rules-category">
-                    <h3>Правила игрового процесса</h3>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.1</strong> > Запрещено хранение, использование. Список: X-ray (и ему подобные), Litematica ((и ему подобные), (schematica разрешена)), Launcher (с открытой установкой чит клиентов), Elytra Swap (и ему подобные), AutoAttack (и ему подобные), ChestStealer ((и ему подобные), (ItemScroller разрешен))</div>
-                        <div class="punishment">[Наказание: бан на 7 дней]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.1.1</strong> > запрещено использовать любой чит клиент</div>
-                        <div class="punishment">[Наказание: бан на 14 дней]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.2</strong> > Администрация вправе дать вам блокировку, если найдет при проверке удаленные читы которые были скачаны за прошедшую неделю.</div>
-                        <div class="punishment">[Наказание: бан на 7 дней]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.3</strong> > Запрещен игнор, отказ, выход с игры, неадекватное поведение при проверке.</div>
-                        <div class="punishment">[Наказание: бан на 7 дней]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.4</strong> > Запрещен тиминг с читером.</div>
-                        <div class="punishment">[Наказание: бан на 3 дня]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.5</strong> > Запрещено намеренное причинение вреда проекту, заливы, использование багов/недоработок сервера.</div>
-                        <div class="punishment">[Наказание: бан от 1 до 30-ти дней]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.6</strong> > Создание ника схожего с администрацией/ника с ненормативной лекской/ника с оскорблением другого игрока.</div>
-                        <div class="punishment">[Наказание: Предупреждение, перманентный бан]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.7</strong> > Запрещено пользоваться аккаунтом больше 1-го человека. (То есть давать аккаунт друзьям/родным/ знакомым и т.д.)</div>
-                        <div class="punishment">[Наказание: бан на 7 дней]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.8</strong> > Обход бана за читы перепроверка при нахождении запрет мода/чита</div>
-                        <div class="punishment">[Наказание: бан по Ip на 20 дней]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.8.1</strong> > обход бана по другой причине</div>
-                        <div class="punishment">[Наказание: бан по Ip 2x срока]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>3.9</strong> > Запрещена провокация игроков на нарушение правил.</div>
-                        <div class="punishment">[Наказание: бан на 3 - 12 часов]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>4.0</strong> > Запрещена продажа читов.</div>
-                        <div class="punishment">[Наказание: Перманентный бан и снятие привилегии]</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>4.1</strong> > Запрещены команды игроков содержащих более 3 человек (не аккаунтов)</div>
-                        <div class="punishment">[Наказание: бан на 3 дня за одного игрока, +3 дня за каждого последующего игрока]</div>
-                    </div>
+                <div class="card">
+                    <h4>Владелец</h4>
+                    <p>Telegram: <a href="https://t.me/Bulo_o4ka">@Bulo_o4ka</a></p>
+                    <span>Главный разработчик</span>
                 </div>
-                
-                <div class="rules-category">
-                    <h3>Дополнительная информация</h3>
-                    <div class="rule-item">
-                        <div class="rule-text">Если вас вызвали на проверку, у вас должен быть установлен Discord/AnyDesk, при отказе вы будете заблокированы на нашем сервере.</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text">Персонал имеет право выбрать через что ему лучше проверять подозреваемого.</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text">Персонал имеет право без причины проверять подозреваемого.</div>
-                    </div>
-                    
-                    <div class="rule-item">
-                        <div class="rule-text">Примите к сведенью: Главная администрация проекта является самым высоким по званию лицом, которое может не соблюдать данные правила и действовать на свое усмотрение.</div>
-                    </div>
+                <div class="card">
+                    <h4>Гл. Администраторы</h4>
+                    <p>Telegram: <a href="https://t.me/f0lik_0">@f0lik_0</a></p>
+                    <span>Куратор модерации</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Футер -->
+    <section class="rules">
+        <div class="container">
+            <h3>Правила сервера</h3>
+            <div class="accordion">
+                
+                <div class="acc-item">
+                    <div class="acc-header">Основное</div>
+                    <div class="acc-content">
+                        <p>Использование любых функций проекта означает полное согласие с настоящими правилами. Владелец аккаунта несёт полную ответственность за его безопасность и действия, совершаемые с его использованием.</p>
+                        <p>Администрация имеет право заблокировать аккаунт без объяснения причин и возможности разбана. Администрация сохраняет за собой право не предоставлять доказательства нарушения; требования и просьбы о предоставлении могут быть проигнорированы.</p>
+                        <p>Средства, потраченные на услуги, являются пожертвованиями и не подлежат возврату. Администрация не несёт ответственности за ошибки при оплате.</p>
+                        <p>Администрация не возвращает утраченные ресурсы и прогресс, даже если потеря произошла из-за багов, сбоев или других технических причин.</p>
+                        <p>Правила могут быть изменены без предварительного уведомления.</p>
+                        <p>На обжалование наказания даётся 3 дня с момента его выдачи.</p>
+                        <p>Администрация и модерация не интерпретирует сообщения в шуточном ключе. Любое сообщение, нарушающее правила, даже под видом шутки, может повлечь наказание.</p>
+                        <p>Администрация имеет право наказывать игроков, систематически нарушающих правила. Меры наказания определяются по усмотрению администрации.</p>
+                        <p>Администрация имеет право выдавать блокировки на срок, превышающий указанный в правилах, или назначать иные меры наказания по своему усмотрению.</p>
+                        <p>Игроки, занесённые в чёрный список проекта, полностью утрачивают право на участие в игровом, информационном и техническом взаимодействии с проектом. Игрок может быть занесён в чёрный список без объяснения причин, если его действия нанесли или могут нанести критический ущерб проекту, репутации или безопасности персонала.</p>
+                    </div>
+                </div>
+
+                <div class="acc-item">
+                    <div class="acc-header">Правила игрового чата</div>
+                    <div class="acc-content">
+                        <div class="rule-box"><span>1.0</span> Запрещено флудить, спамить символами (8 и более одинаковых символов), спамить, отправлять более 2-х похожих по смыслу, или одинаковых сообщения подряд. <br><b>[Наказание: предупреждение, мут на 60 - 120 минут]</b></div>
+                        <div class="rule-box"><span>1.1</span> Запрещено аморальное поведение. <br><b>[Наказание: мут на 60 - 180 минут]</b></div>
+                        <div class="rule-box"><span>1.2</span> Запрещено унижение, а так же любые оскорбления в сторону игроков (в глобальном чате). <br><b>[Наказание: мут на 30 минут]</b></div>
+                        <div class="rule-box"><span>1.2.1</span> Запрещено оскорбление родителей. некорректное обращение к родителям любого игрока, оскорбительные упоминания. <br><b>[Наказание: мут на 1 - 3 часа]</b></div>
+                        <div class="rule-box"><span>1.2.2</span> Запрещено унижение, угрозы и оскорбление в сторону администрации. <br><b>[Наказание: мут на усмотрение администратора]</b></div>
+                        <div class="rule-box"><span>1.3</span> Запрещены угрозы любого вида. <br><b>[Наказание: мут на 30 - 60 минут]</b></div>
+                        <div class="rule-box"><span>1.4</span> Запрещен флуд, спам, капс в личные сообщения администратору. <br><b>[Наказание: предупреждение, мут от 1- 3 часов]</b></div>
+                        <div class="rule-box"><span>1.5</span> Запрещено попрошайничество любых игровых ценностей у админа ( вещи, донат и т.д.). <br><b>[Наказание: предупреждение, мут от 10 до 30 минут]</b></div>
+                        <div class="rule-box"><span>1.6</span> Запрещена организация флуда в чате. <br><b>[Наказание: мут на 30-60 минут]</b></div>
+                        <div class="rule-box"><span>1.7</span> Запрещено упоминание других проектов в любом виде. <br><b>[Наказание: мут на 1 час]</b></div>
+                        <div class="rule-box"><span>1.8</span> Запрещено просить разбан/размут у администрации. <br><b>[Наказание: мут на 10-120 минут]</b></div>
+                        <div class="rule-box"><span>1.9</span> Запрещено дизинформирование/обман игроков/ администраторов. <br><b>[Наказание: бан на 14 дней]</b></div>
+                        <div class="rule-box"><span>2.0</span> Запрещена реклама сторонних ресурсов и проектов. <br><b>[Наказание: мут на усмотрение администрации]</b></div>
+                        <div class="rule-box"><span>2.1</span> Запрещена дискриминация по половым, религиозным, сексуальным, физиологическим и другим признакам. <br><b>[Наказание: мут на 1-12 часов]</b></div>
+                        <div class="rule-box"><span>2.2</span> Неуважительное отношение к администрации проекта. <br><b>[Наказание: мут на 30 - 360 минут]</b></div>
+                        <div class="rule-box"><span>2.3</span> Запрещена политическая агитация. <br><b>[Наказание: мут на 2 часа]</b></div>
+                        <div class="rule-box"><span>2.4</span> Запрещен капс. (Капсом считается сообщение, в котором верхним регистром написано более 50% от всего сообщения) <br><b>[Наказание: предупреждение, мут на 10 - 30 минут]</b></div>
+                        <div class="rule-box"><span>2.5</span> Запрещено оскорбление проекта. <br><b>[Наказание: мут на 1 - 3 часа]</b></div>
+                        <div class="rule-box"><span>2.6</span> Запрещено обсуждать действие администрации, для этого есть Discord. <br><b>[Наказание: мут на 30 минут]</b></div>
+                        <div class="rule-box"><span>2.7</span> Запрещена выдача себя за администрацию проекта. <br><b>[Наказание: мут на 30 минут]</b></div>
+                        <div class="rule-box"><span>2.8</span> Запрещено распространение вредоносных ссылок. <br><b>[Наказание: перманентный мут]</b></div>
+                    </div>
+                </div>
+
+                <div class="acc-item">
+                    <div class="acc-header">Правила игрового процесса</div>
+                    <div class="acc-content">
+                        <div class="rule-box"><span>3.1</span> Запрещено хранение, использование. <br>Список: X-ray, Litematica (schematica разрешена), Launcher (с открытой установкой чит клиентов), Elytra Swap, AutoAttack, ChestStealer (ItemScroller разрешен). <br><b>[Наказание: бан на 7 дней]</b></div>
+                        <div class="rule-box"><span>3.1.1</span> Запрещено использовать любой чит клиент. <br><b>[Наказание: бан на 14 дней]</b></div>
+                        <div class="rule-box"><span>3.2</span> Администрация вправе дать вам блокировку, если найдет при проверке удаленные читы которые были скачаны за прошедшую неделю. <br><b>[Наказание: бан на 7 дней]</b></div>
+                        <div class="rule-box"><span>3.3</span> Запрещен игнор, отказ, выход с игры, неадекватное поведение при проверке. <br><b>[Наказание: бан на 7 дней]</b></div>
+                        <div class="rule-box"><span>3.4</span> Запрещен тиминг с читером. <br><b>[Наказание: бан на 3 дня]</b></div>
+                        <div class="rule-box"><span>3.5</span> Запрещено намеренное причинение вреда проекту, заливы, использование багов/недоработок сервера. <br><b>[Наказание: бан от 1 до 30-ти дней]</b></div>
+                        <div class="rule-box"><span>3.6</span> Создание ника схожего с администрацией/ника с ненормативной лексикой/ника с оскорблением другого игрока. <br><b>[Наказание: Предупреждение, перманентный бан]</b></div>
+                        <div class="rule-box"><span>3.7</span> Запрещено пользоваться аккаунтом больше 1-го человека. <br><b>[Наказание: бан на 7 дней]</b></div>
+                        <div class="rule-box"><span>3.8</span> Обход бана за читы (перепроверка при нахождении запрет мода/чита). <br><b>[Наказание: бан по Ip на 20 дней]</b></div>
+                        <div class="rule-box"><span>3.8.1</span> Обход бана по другой причине. <br><b>[Наказание: бан по Ip 2x срока]</b></div>
+                        <div class="rule-box"><span>3.9</span> Запрещена провокация игроков на нарушение правил. <br><b>[Наказание: бан на 3 - 12 часов]</b></div>
+                        <div class="rule-box"><span>4.0</span> Запрещена продажа читов. <br><b>[Наказание: Перманентный бан и снятие привилегии]</b></div>
+                        <div class="rule-box"><span>4.1</span> Запрещены команды игроков содержащих более 3 человек (не аккаунтов). <br><b>[Наказание: бан на 3 дня за одного игрока, +3 дня за каждого последующего игрока]</b></div>
+                        
+                        <div class="notice">
+                            <p>Если вас вызвали на проверку, у вас должен быть установлен Discord/AnyDesk, при отказе вы будете заблокированы на нашем сервере.</p>
+                            <p><strong>Права персонала на проверке:</strong> Персонал имеет право выбрать через что ему лучше проверять подозреваемого. Персонал имеет право без причины проверять подозреваемого.</p>
+                            <p><i>Примите к сведению: Главная администрация проекта является самым высоким по званию лицом, которое может не соблюдать данные правила и действовать на свое усмотрение.</i></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>GidraX-Network</h3>
-                    <p>Лучший Minecraft сервер с уникальным геймплеем и дружным сообществом.</p>
-                    <div class="social-links">
-                        <a href="https://t.me/GidraXNW" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="https://vk.com/gidraxnetwork" target="_blank" title="VK"><i class="fab fa-vk"></i></a>
-                        <a href="https://discord.gg/J3WXA2tZvT" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Быстрые ссылки</h3>
-                    <ul>
-                        <li><a href="#home">Главная</a></li>
-                        <li><a href="#about">О сервере</a></li>
-                        <li><a href="#rules">Правила</a></li>
-                        <li><a href="https://gidrax-network.easydonate.ru" target="_blank">Магазин</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Правила</h3>
-                    <ul>
-                        <li><a href="#rules">Общие правила</a></li>
-                        <li><a href="#">Правила чата</a></li>
-                        <li><a href="#">Политика конфиденциальности</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Поддержка</h3>
-                    <ul>
-                        <li><a href="https://t.me/GidraXNW" target="_blank">Техническая помощь</a></li>
-                        <li><a href="https://discord.gg/J3WXA2tZvT" target="_blank">Сообщить о проблеме</a></li>
-                        <li><a href="https://vk.com/gidraxnetwork" target="_blank">Предложения</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 GidraX-Network. Все права защищены.</p>
-            </div>
-        </div>
+        <p>&copy; 2026 GidraX-Network. Все права защищены.</p>
     </footer>
 
     <script src="script.js"></script>
