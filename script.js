@@ -1,77 +1,115 @@
-// Падающие кристаллы на фоне
-const canvas = document.getElementById('crystals');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const crystals = [];
-
-class Crystal {
-    constructor() {
-        this.reset();
-    }
-    reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = -50;
-        this.size = Math.random() * 10 + 5;
-        this.speed = Math.random() * 2 + 1;
-        this.opacity = Math.random() * 0.5 + 0.1;
-        this.color = Math.random() > 0.5 ? '#912929' : '#FF7DD7';
-    }
-    update() {
-        this.y += this.speed;
-        if (this.y > canvas.height) this.reset();
-    }
-    draw() {
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x + this.size/2, this.y + this.size);
-        ctx.lineTo(this.x, this.y + this.size * 1.5);
-        ctx.lineTo(this.x - this.size/2, this.y + this.size);
-        ctx.closePath();
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = this.opacity;
-        ctx.fill();
-    }
+:root {
+    --primary: #912929;
+    --secondary: #FF7DD7;
+    --bg-dark: #0a0a0a;
+    --bg-light: #1a1a1a;
+    --text: #ffffff;
 }
 
-for (let i = 0; i < 40; i++) {
-    crystals.push(new Crystal());
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    crystals.forEach(c => {
-        c.update();
-        c.draw();
-    });
-    requestAnimationFrame(animate);
-}
-animate();
-
-// Аккордеон
-document.querySelectorAll('.acc-header').forEach(header => {
-    header.addEventListener('click', () => {
-        const item = header.parentElement;
-        item.classList.toggle('active');
-    });
-});
-
-// Копирование IP
-function copyIP() {
-    const ip = "mc.gidrax-net.ru";
-    navigator.clipboard.writeText(ip);
-    const btn = document.getElementById('copy-status');
-    btn.innerText = "Скопировано!";
-    setTimeout(() => { btn.innerText = "Копировать"; }, 2000);
+body {
+    background-color: var(--bg-dark);
+    color: var(--text);
+    overflow-x: hidden;
 }
 
-// Анимация появления секций при скролле
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-}, { threshold: 0.1 });
+#crystals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
-document.querySelectorAll('section').forEach(section => observer.observe(section));
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    padding: 40px 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
+
+.logo {
+    font-size: 3rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.dev { color: #555; font-size: 0.9rem; }
+
+section { padding: 60px 0; opacity: 0; transform: translateY(30px); transition: 1s ease-out forwards; }
+section.visible { opacity: 1; transform: translateY(0); }
+
+h3 { margin-bottom: 30px; font-size: 2rem; color: var(--secondary); }
+
+/* Кнопка IP */
+#copy-ip {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(145, 41, 41, 0.4);
+    margin: 20px 0;
+}
+
+#copy-ip:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 125, 215, 0.6); }
+
+/* Соцсети */
+.social-links { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+.btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    background: #222;
+}
+.btn:hover { background: var(--secondary); transform: translateY(-3px); }
+
+/* Аккордеон */
+.accordion { text-align: left; max-width: 800px; margin: 0 auto; }
+.acc-item { background: var(--bg-light); margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
+.acc-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    background: #252525;
+    transition: 0.3s;
+    font-weight: bold;
+    border-left: 4px solid var(--primary);
+}
+.acc-header:hover { background: #333; }
+.acc-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background: #111;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.acc-item.active .acc-content { padding: 20px; max-height: 1000px; }
+
+/* Карточки контактов */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.card { background: var(--bg-light); padding: 20px; border-radius: 15px; border: 1px solid #333; }
+.card h4 { color: var(--secondary); margin-bottom: 10px; }
+.card a { color: var(--primary); text-decoration: none; font-weight: bold; }
+
+footer { padding: 40px; color: #444; border-top: 1px solid #222; }
