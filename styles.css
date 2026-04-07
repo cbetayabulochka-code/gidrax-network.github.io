@@ -71,10 +71,23 @@ h3 { margin-bottom: 30px; font-size: 2rem; color: var(--secondary); }
 #copy-ip:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 125, 215, 0.6); }
 
 /* Соцсети */
+.market { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+.btff {
+    padding: 10px 125px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    background: #222;
+}
+.btff:hover { background: var(--secondary); transform: translateY(-5px); }
+
+/* Соцсети */
 .social-links { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
 .btn {
     padding: 10px 25px;
-    border-radius: 5px;
+    border-radius: 4px;
     text-decoration: none;
     color: white;
     font-weight: bold;
