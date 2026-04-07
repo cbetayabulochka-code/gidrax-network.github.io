@@ -73,7 +73,7 @@ h3 { margin-bottom: 30px; font-size: 2rem; color: var(--secondary); }
 /* Соцсети */
 .market { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
 .btff {
-    padding: 10px 125px;
+    padding: 10px 115px;
     border-radius: 4px;
     text-decoration: none;
     color: white;
